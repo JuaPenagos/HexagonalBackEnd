@@ -23,10 +23,10 @@ namespace HexagonalBackEnd.Application.Services
 
         private readonly ILog _logger;
 
-        private readonly UtilityJWT _utility;
+        private readonly IUtilityJWT _utility;
 
         public EmployeeService(IEmployeeRepository employeeRepository, IRoleRepository roleRepository, 
-            ILog logger, UtilityJWT utilityJWT) {
+            ILog logger, IUtilityJWT utilityJWT) {
             _employeeRepository = employeeRepository;
             _encrypt = new Encrypt();
             _roleRepository = roleRepository;
@@ -98,8 +98,8 @@ namespace HexagonalBackEnd.Application.Services
             catch (Exception)
             {
 
-                _logger.Error("The approver does not have the required priority.");
-                throw new Exception("The approver does not have the required priority.");
+                _logger.Error("An error occurred while updating.");
+                throw new Exception("An error occurred while updating.");
             }
         }
 

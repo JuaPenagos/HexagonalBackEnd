@@ -44,7 +44,7 @@ builder.Services.AddScoped<IRemunerationTypeService, RemunerationTypeService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IStateService, StateService>();
 
-builder.Services.AddSingleton<UtilityJWT>();
+builder.Services.AddSingleton<IUtilityJWT,UtilityJWT>();
 
 builder.Services.AddAuthentication(config => {
     config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

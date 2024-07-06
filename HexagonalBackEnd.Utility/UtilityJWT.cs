@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace HexagonalBackEnd.Utility
 {
-    public class UtilityJWT
+    public class UtilityJWT : IUtilityJWT
     {
         private readonly IConfiguration _configuration;
         public UtilityJWT(IConfiguration configuration)
