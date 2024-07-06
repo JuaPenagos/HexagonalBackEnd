@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+    db:
+        image: "mcr.microsoft.com/mssql/server:2022-latest"
+        environment:
+          - ACCEPT_EULA=Y
+          - SA_PASSWORD=Holamundo123.
+        ports:
+          - 1433:1433
+
+    hexagonalbackend.api:
+        image: ${DOCKER_REGISTRY-}hexagonalbackend
+        build:
+          context: .
+          dockerfile: HexagonalBackEnd.Api/Dockerfile
+        depends_on:
+        - db
